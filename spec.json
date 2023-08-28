@@ -1,0 +1,82 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Project APIs",
+		"version": ""
+	},
+	"paths": {
+		"/adapter/GetInvitationsCount": {
+			"post": {
+				"tags": [
+					"s21adapter"
+				],
+				"parameters": [
+					{
+						"name": "variables",
+						"in": "body",
+						"description": "Request variables",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/Variables_GetInvitationsCount"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/Data_GetInvitationsCount"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Data_GetInvitationsCount": {
+			"type": "object",
+			"properties": {
+				"team": {
+					"$ref": "#/definitions/Data_Team_GetInvitationsCount"
+				}
+			},
+			"xml": {
+				"name": "Data_GetInvitationsCount"
+			}
+		},
+		"Data_Team_GetInvitationsCount": {
+			"type": "object",
+			"properties": {
+				"__typename": {
+					"type": "string",
+					"xml": {
+						"name": "Typename"
+					},
+					"format": "string"
+				},
+				"getCreatedJoinTeamRequestCount": {
+					"type": "integer",
+					"xml": {
+						"name": "GetCreatedJoinTeamRequestCount"
+					},
+					"format": "int64"
+				}
+			},
+			"xml": {
+				"name": "Data_Team_GetInvitationsCount"
+			}
+		},
+		"Variables_GetInvitationsCount": {
+			"type": "object",
+			"xml": {
+				"name": "Variables_GetInvitationsCount"
+			}
+		}
+	},
+	"tags": [
+		{
+			"name": "s21adapter",
+			"description": "s21adapter API"
+		}
+	]
+}
