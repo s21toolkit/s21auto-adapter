@@ -11,7 +11,9 @@ func InitServer() echoswagger.ApiRoot {
 
 	se := echoswagger.New(e, "spec/", nil)
 
-	controller.AdapterController{}.Init(se.Group("s21adapter", "/adapter"))
+	c := controller.New()
+
+	c.Init(se.Group("s21adapter", "/adapter"))
 
 	return se
 }

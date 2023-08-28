@@ -1,19 +1,34 @@
 package controller
 
-import "github.com/pangpanglabs/echoswagger/v2"
+import (
+	"os"
 
-var methodRegistry []func(echoswagger.ApiGroup) = make([]func(echoswagger.ApiGroup), 0)
+	"github.com/pangpanglabs/echoswagger/v2"
+	"github.com/s21toolkit/s21client"
+)
 
-func registerMethod(callback func(echoswagger.ApiGroup)) {
+var methodRegistry []func(echoswagger.ApiGroup, *AdapterController) = make([]func(echoswagger.ApiGroup, *AdapterController), 0)
+
+func registerMethod(callback func(echoswagger.ApiGroup, *AdapterController)) {
 	methodRegistry = append(methodRegistry, callback)
 }
 
-type AdapterController struct{}
+type AdapterController struct {
+	client *s21client.Client
+}
 
-func (AdapterController) Init(g echoswagger.ApiGroup) {
+func New() AdapterController {
+	client := s21client.New(s21client.DefaultAuth(os.Getenv("S21_USERNAME"), os.Getenv("S21_PASSWORD")))
+
+	return AdapterController{
+		client: client,
+	}
+}
+
+func (c *AdapterController) Init(g echoswagger.ApiGroup) {
 	g.SetDescription("s21adapter API")
 
 	for _, methodInitializer := range methodRegistry {
-		methodInitializer(g)
+		methodInitializer(g, c)
 	}
 }
