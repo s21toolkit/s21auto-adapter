@@ -4,8 +4,8 @@ github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
 github.com/go-resty/resty/v2 v2.7.0 h1:me+K9p3uhSmXtrBZ4k9jcEAfJmuC8IivWHwaLZwPrFY=
 github.com/go-resty/resty/v2 v2.7.0/go.mod h1:9PWDzw47qPphMRFfhsyk0NnSgvluHcljSMVIq3w7q0I=
-github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
-github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/google/uuid v1.3.1 h1:KjJaJ9iWZ3jOFZIf1Lqf4laDRCasjl0BCmnEGxkdLb4=
+github.com/google/uuid v1.3.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/labstack/echo v3.3.10+incompatible/go.mod h1:0INS7j/VjnFxD4E2wkz67b8cVwCLbBmJyDaka6Cmk1s=
 github.com/labstack/echo/v4 v4.1.13/go.mod h1:3WZNypykZ3tnqpF2Qb4fPg27XDunFqgP3HGDmCMgv7U=
 github.com/labstack/echo/v4 v4.11.1 h1:dEpLU2FLg4UVmvCGPuk/APjlH6GDpbEPti61srUUUs4=
@@ -29,8 +29,8 @@ github.com/pangpanglabs/echoswagger/v2 v2.4.1 h1:uJA84SgkMgeJRvuX16rym2RDNZOXrVK
 github.com/pangpanglabs/echoswagger/v2 v2.4.1/go.mod h1:r0rruV8DsOMk/XgJCuij5f1AKW1mmV9LnWS2qzNHRMY=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/s21toolkit/s21client v0.2.0 h1:pgw8kNaLmQUVNjeg/FmVp3bXP5vXjDDZFTSW0daUNDg=
-github.com/s21toolkit/s21client v0.2.0/go.mod h1:X8O9R/n931aR+XMJ++RcygFjI9KuKKJBtoZPZgWEj+s=
+github.com/s21toolkit/s21client v0.2.1 h1:Enned0nR+H1fgnfvfvNU0o+z7ArDsEZpXLssH2Ru6kw=
+github.com/s21toolkit/s21client v0.2.1/go.mod h1:X8O9R/n931aR+XMJ++RcygFjI9KuKKJBtoZPZgWEj+s=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=

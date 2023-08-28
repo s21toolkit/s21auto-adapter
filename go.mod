@@ -5,12 +5,12 @@ go 1.20
 require (
 	github.com/labstack/echo/v4 v4.11.1
 	github.com/pangpanglabs/echoswagger/v2 v2.4.1
-	github.com/s21toolkit/s21client v0.2.0
+	github.com/s21toolkit/s21client v0.2.1
 )
 
 require (
 	github.com/go-resty/resty/v2 v2.7.0 // indirect
-	github.com/google/uuid v1.3.0 // indirect
+	github.com/google/uuid v1.3.1 // indirect
 	github.com/labstack/gommon v0.4.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
