@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetTournamentNotificationResults", c.Handle_GetTournamentNotificationResults).
+			SetOperationId("GetTournamentNotificationResults").
 			AddParamBody(requests.Variables_GetTournamentNotificationResults{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetTournamentNotificationResults{}, nil)
 	})

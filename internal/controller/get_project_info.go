@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetProjectInfo", c.Handle_GetProjectInfo).
+			SetOperationId("GetProjectInfo").
 			AddParamBody(requests.Variables_GetProjectInfo{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetProjectInfo{}, nil)
 	})

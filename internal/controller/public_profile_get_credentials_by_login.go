@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/PublicProfileGetCredentialsByLogin", c.Handle_PublicProfileGetCredentialsByLogin).
+			SetOperationId("PublicProfileGetCredentialsByLogin").
 			AddParamBody(requests.Variables_PublicProfileGetCredentialsByLogin{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_PublicProfileGetCredentialsByLogin{}, nil)
 	})

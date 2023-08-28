@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/SubscribeToEvent", c.Handle_SubscribeToEvent).
+			SetOperationId("SubscribeToEvent").
 			AddParamBody(requests.Variables_SubscribeToEvent{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_SubscribeToEvent{}, nil)
 	})

@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/CancelInvitation", c.Handle_CancelInvitation).
+			SetOperationId("CancelInvitation").
 			AddParamBody(requests.Variables_CancelInvitation{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_CancelInvitation{}, nil)
 	})

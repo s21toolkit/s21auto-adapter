@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetGraphCurrentType", c.Handle_GetGraphCurrentType).
+			SetOperationId("GetGraphCurrentType").
 			AddParamBody(requests.Variables_GetGraphCurrentType{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetGraphCurrentType{}, nil)
 	})

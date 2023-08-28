@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetUserNotificationsCount", c.Handle_GetUserNotificationsCount).
+			SetOperationId("GetUserNotificationsCount").
 			AddParamBody(requests.Variables_GetUserNotificationsCount{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetUserNotificationsCount{}, nil)
 	})

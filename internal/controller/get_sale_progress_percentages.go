@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetSaleProgressPercentages", c.Handle_GetSaleProgressPercentages).
+			SetOperationId("GetSaleProgressPercentages").
 			AddParamBody(requests.Variables_GetSaleProgressPercentages{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetSaleProgressPercentages{}, nil)
 	})

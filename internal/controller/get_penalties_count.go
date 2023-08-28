@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetPenaltiesCount", c.Handle_GetPenaltiesCount).
+			SetOperationId("GetPenaltiesCount").
 			AddParamBody(requests.Variables_GetPenaltiesCount{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetPenaltiesCount{}, nil)
 	})

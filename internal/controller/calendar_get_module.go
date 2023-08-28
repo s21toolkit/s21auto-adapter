@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/CalendarGetModule", c.Handle_CalendarGetModule).
+			SetOperationId("CalendarGetModule").
 			AddParamBody(requests.Variables_CalendarGetModule{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_CalendarGetModule{}, nil)
 	})

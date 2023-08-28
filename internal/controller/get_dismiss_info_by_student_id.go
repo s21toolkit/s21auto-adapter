@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetDismissInfoByStudentId", c.Handle_GetDismissInfoByStudentId).
+			SetOperationId("GetDismissInfoByStudentId").
 			AddParamBody(requests.Variables_GetDismissInfoByStudentId{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetDismissInfoByStudentId{}, nil)
 	})

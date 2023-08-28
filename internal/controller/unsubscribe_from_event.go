@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/UnsubscribeFromEvent", c.Handle_UnsubscribeFromEvent).
+			SetOperationId("UnsubscribeFromEvent").
 			AddParamBody(requests.Variables_UnsubscribeFromEvent{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_UnsubscribeFromEvent{}, nil)
 	})

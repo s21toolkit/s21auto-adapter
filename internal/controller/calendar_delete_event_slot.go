@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/CalendarDeleteEventSlot", c.Handle_CalendarDeleteEventSlot).
+			SetOperationId("CalendarDeleteEventSlot").
 			AddParamBody(requests.Variables_CalendarDeleteEventSlot{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_CalendarDeleteEventSlot{}, nil)
 	})

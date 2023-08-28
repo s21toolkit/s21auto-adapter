@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetCredentialsByLogin", c.Handle_GetCredentialsByLogin).
+			SetOperationId("GetCredentialsByLogin").
 			AddParamBody(requests.Variables_GetCredentialsByLogin{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetCredentialsByLogin{}, nil)
 	})

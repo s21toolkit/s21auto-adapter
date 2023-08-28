@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetAsapWidgets", c.Handle_GetAsapWidgets).
+			SetOperationId("GetAsapWidgets").
 			AddParamBody(requests.Variables_GetAsapWidgets{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetAsapWidgets{}, nil)
 	})

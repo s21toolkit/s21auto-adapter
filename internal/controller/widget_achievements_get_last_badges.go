@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/WidgetAchievementsGetLastBadges", c.Handle_WidgetAchievementsGetLastBadges).
+			SetOperationId("WidgetAchievementsGetLastBadges").
 			AddParamBody(requests.Variables_WidgetAchievementsGetLastBadges{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_WidgetAchievementsGetLastBadges{}, nil)
 	})

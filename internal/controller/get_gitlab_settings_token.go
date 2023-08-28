@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetGitlabSettingsToken", c.Handle_GetGitlabSettingsToken).
+			SetOperationId("GetGitlabSettingsToken").
 			AddParamBody(requests.Variables_GetGitlabSettingsToken{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetGitlabSettingsToken{}, nil)
 	})

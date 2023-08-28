@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetMySuggestedActivities", c.Handle_GetMySuggestedActivities).
+			SetOperationId("GetMySuggestedActivities").
 			AddParamBody(requests.Variables_GetMySuggestedActivities{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetMySuggestedActivities{}, nil)
 	})

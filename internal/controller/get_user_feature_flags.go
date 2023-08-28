@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetUserFeatureFlags", c.Handle_GetUserFeatureFlags).
+			SetOperationId("GetUserFeatureFlags").
 			AddParamBody(requests.Variables_GetUserFeatureFlags{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetUserFeatureFlags{}, nil)
 	})

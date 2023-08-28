@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/SendInvitation", c.Handle_SendInvitation).
+			SetOperationId("SendInvitation").
 			AddParamBody(requests.Variables_SendInvitation{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_SendInvitation{}, nil)
 	})

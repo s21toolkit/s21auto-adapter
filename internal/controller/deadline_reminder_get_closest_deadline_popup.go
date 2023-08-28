@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/DeadlineReminderGetClosestDeadlinePopup", c.Handle_DeadlineReminderGetClosestDeadlinePopup).
+			SetOperationId("DeadlineReminderGetClosestDeadlinePopup").
 			AddParamBody(requests.Variables_DeadlineReminderGetClosestDeadlinePopup{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_DeadlineReminderGetClosestDeadlinePopup{}, nil)
 	})

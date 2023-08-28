@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetIsHonorRatingNeeded", c.Handle_GetIsHonorRatingNeeded).
+			SetOperationId("GetIsHonorRatingNeeded").
 			AddParamBody(requests.Variables_GetIsHonorRatingNeeded{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetIsHonorRatingNeeded{}, nil)
 	})

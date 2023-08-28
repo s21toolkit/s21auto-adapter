@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetUpcomingEvents", c.Handle_GetUpcomingEvents).
+			SetOperationId("GetUpcomingEvents").
 			AddParamBody(requests.Variables_GetUpcomingEvents{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetUpcomingEvents{}, nil)
 	})

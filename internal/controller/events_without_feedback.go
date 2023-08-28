@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/EventsWithoutFeedback", c.Handle_EventsWithoutFeedback).
+			SetOperationId("EventsWithoutFeedback").
 			AddParamBody(requests.Variables_EventsWithoutFeedback{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_EventsWithoutFeedback{}, nil)
 	})

@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetProjectConsistencyInfo", c.Handle_GetProjectConsistencyInfo).
+			SetOperationId("GetProjectConsistencyInfo").
 			AddParamBody(requests.Variables_GetProjectConsistencyInfo{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetProjectConsistencyInfo{}, nil)
 	})

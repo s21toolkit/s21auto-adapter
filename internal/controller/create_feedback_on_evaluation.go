@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/CreateFeedbackOnEvaluation", c.Handle_CreateFeedbackOnEvaluation).
+			SetOperationId("CreateFeedbackOnEvaluation").
 			AddParamBody(requests.Variables_CreateFeedbackOnEvaluation{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_CreateFeedbackOnEvaluation{}, nil)
 	})

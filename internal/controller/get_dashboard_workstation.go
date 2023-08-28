@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetDashboardWorkstation", c.Handle_GetDashboardWorkstation).
+			SetOperationId("GetDashboardWorkstation").
 			AddParamBody(requests.Variables_GetDashboardWorkstation{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetDashboardWorkstation{}, nil)
 	})

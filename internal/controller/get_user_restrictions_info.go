@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetUserRestrictionsInfo", c.Handle_GetUserRestrictionsInfo).
+			SetOperationId("GetUserRestrictionsInfo").
 			AddParamBody(requests.Variables_GetUserRestrictionsInfo{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_GetUserRestrictionsInfo{}, nil)
 	})

@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/PublicProfileLoadAverageLogtime", c.Handle_PublicProfileLoadAverageLogtime).
+			SetOperationId("PublicProfileLoadAverageLogtime").
 			AddParamBody(requests.Variables_PublicProfileLoadAverageLogtime{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_PublicProfileLoadAverageLogtime{}, nil)
 	})

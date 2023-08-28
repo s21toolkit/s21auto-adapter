@@ -12,6 +12,7 @@ import (
 func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/PublicProfileGetSoftSkills", c.Handle_PublicProfileGetSoftSkills).
+			SetOperationId("PublicProfileGetSoftSkills").
 			AddParamBody(requests.Variables_PublicProfileGetSoftSkills{}, "variables", "Request variables", true).
 			AddResponse(http.StatusOK, "Success", requests.Data_PublicProfileGetSoftSkills{}, nil)
 	})
