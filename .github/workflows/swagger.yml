@@ -5,6 +5,9 @@ on:
     tags:
       - "*"
 
+permissions: 
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -17,7 +20,6 @@ jobs:
         run: |
           make spec
           ./s21adapter_spec > swagger.json
-      - uses: actions/upload-artifact@v3
+      - uses: ncipollo/release-action@v1.13.0
         with:
-          name: swagger
-          path: swagger.json
+          artifacts: swagger.json
