@@ -1,8 +1,7 @@
 FROM --platform=$TARGETPLATFORM golang as build
 WORKDIR /build
 COPY . .
-RUN go mod tidy && \
-  CGO_ENABLED=0 go build -o ./s21adapter ./cmd/adapter
+RUN CGO_ENABLED=0 make
 
 
 FROM --platform=$TARGETPLATFORM alpine
