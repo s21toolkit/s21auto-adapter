@@ -12,6 +12,10 @@ S21ADAPTER_SPEC := s21adapter_spec
 default: $(S21ADAPTER)
 all: $(S21ADAPTER) $(S21ADAPTER_SPEC)
 
+.PHONY: $(notdir $(CMD_ADAPTER)) $(notdir $(CMD_SPEC))
+$(notdir $(CMD_ADAPTER)): $(S21ADAPTER)
+$(notdir $(CMD_SPEC)): $(S21ADAPTER_SPEC)
+
 .PHONY: $(S21ADAPTER)
 $(S21ADAPTER): tidy
 >	go build -o $@ $(CMD_ADAPTER)
