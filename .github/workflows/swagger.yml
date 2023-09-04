@@ -1,0 +1,23 @@
+name: swagger
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-go@v4
+        with:
+          go-version: "^1.20.0"
+      - uses: actions/checkout@v3
+      - name: Generate swagger specification
+        run: |
+          make spec
+          s21adapter_spec > swagger.json
+      - uses: actions/upload-artifact@v3
+        with:
+          name: swagger
+          path: swagger.json
