@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  osubot:
+    image: ghcr.io/s21toolkit/s21adapter:latest
+    build:
+      context: .
+      cache_from:
+        - ghcr.io/s21toolkit/s21adapter:latest
+      tags:
+        - ghcr.io/s21toolkit/s21adapter:${RELEASE_VERSION-0}
+        - ghcr.io/s21toolkit/s21adapter:latest
+      x-bake:
+        platforms:
+          - linux/amd64
+          - linux/arm64
