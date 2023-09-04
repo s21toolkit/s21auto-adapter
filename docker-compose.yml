@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  osubot:
+  s21adapter:
     image: ghcr.io/s21toolkit/s21adapter:latest
     build:
       context: .
