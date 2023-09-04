@@ -16,7 +16,7 @@ jobs:
       - name: Generate swagger specification
         run: |
           make spec
-          s21adapter_spec > swagger.json
+          ./s21adapter_spec > swagger.json
       - uses: actions/upload-artifact@v3
         with:
           name: swagger
