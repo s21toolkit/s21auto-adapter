@@ -39,3 +39,15 @@ make spec # Сборка генератора спецификации
 ```sh
 ./s21adapter_spec > swagger.json
 ```
+
+## Генерация методов
+
+Методы адаптера генерируются на основе логов запросов платформы либо списка методов, поддерживаемых клиентом.
+
+Пример генерации из логов с помощью [s21auto](https://github.com/s21toolkit/s21auto):
+
+```sh
+s21auto adapter generate --har log.har -o s21adapter/internal/controller
+```
+
+> Если какие-то методы не нужны, из папки internal/controller можно убрать всё кроме [`controller.go`](/internal/controller/controller.go)
