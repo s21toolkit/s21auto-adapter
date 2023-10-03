@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetProjectGitlabStatus", c.Handle_GetProjectGitlabStatus).
 			SetOperationId("GetProjectGitlabStatus").
-			AddParamBody(requests.Variables_GetProjectGitlabStatus{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetProjectGitlabStatus{}, nil)
+			AddParamBody(requests.GetProjectGitlabStatus_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetProjectGitlabStatus_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetProjectGitlabStatus(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetProjectGitlabStatus `json:"variables"`
+		Variables requests.GetProjectGitlabStatus_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

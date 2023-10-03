@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/PublicProfileGetCoalition", c.Handle_PublicProfileGetCoalition).
 			SetOperationId("PublicProfileGetCoalition").
-			AddParamBody(requests.Variables_PublicProfileGetCoalition{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_PublicProfileGetCoalition{}, nil)
+			AddParamBody(requests.PublicProfileGetCoalition_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.PublicProfileGetCoalition_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_PublicProfileGetCoalition(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_PublicProfileGetCoalition `json:"variables"`
+		Variables requests.PublicProfileGetCoalition_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetUserRestrictionsInfo", c.Handle_GetUserRestrictionsInfo).
 			SetOperationId("GetUserRestrictionsInfo").
-			AddParamBody(requests.Variables_GetUserRestrictionsInfo{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetUserRestrictionsInfo{}, nil)
+			AddParamBody(requests.GetUserRestrictionsInfo_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetUserRestrictionsInfo_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetUserRestrictionsInfo(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetUserRestrictionsInfo `json:"variables"`
+		Variables requests.GetUserRestrictionsInfo_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetCampusWorkstation", c.Handle_GetCampusWorkstation).
 			SetOperationId("GetCampusWorkstation").
-			AddParamBody(requests.Variables_GetCampusWorkstation{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetCampusWorkstation{}, nil)
+			AddParamBody(requests.GetCampusWorkstation_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetCampusWorkstation_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetCampusWorkstation(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetCampusWorkstation `json:"variables"`
+		Variables requests.GetCampusWorkstation_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

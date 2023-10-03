@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/CreateFeedbackOnEvaluation", c.Handle_CreateFeedbackOnEvaluation).
 			SetOperationId("CreateFeedbackOnEvaluation").
-			AddParamBody(requests.Variables_CreateFeedbackOnEvaluation{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_CreateFeedbackOnEvaluation{}, nil)
+			AddParamBody(requests.CreateFeedbackOnEvaluation_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.CreateFeedbackOnEvaluation_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_CreateFeedbackOnEvaluation(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_CreateFeedbackOnEvaluation `json:"variables"`
+		Variables requests.CreateFeedbackOnEvaluation_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

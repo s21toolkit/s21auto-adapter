@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/ReadUserNotifications", c.Handle_ReadUserNotifications).
 			SetOperationId("ReadUserNotifications").
-			AddParamBody(requests.Variables_ReadUserNotifications{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_ReadUserNotifications{}, nil)
+			AddParamBody(requests.ReadUserNotifications_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.ReadUserNotifications_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_ReadUserNotifications(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_ReadUserNotifications `json:"variables"`
+		Variables requests.ReadUserNotifications_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

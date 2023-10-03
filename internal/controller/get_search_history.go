@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetSearchHistory", c.Handle_GetSearchHistory).
 			SetOperationId("GetSearchHistory").
-			AddParamBody(requests.Variables_GetSearchHistory{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetSearchHistory{}, nil)
+			AddParamBody(requests.GetSearchHistory_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetSearchHistory_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetSearchHistory(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetSearchHistory `json:"variables"`
+		Variables requests.GetSearchHistory_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

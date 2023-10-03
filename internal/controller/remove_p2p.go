@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/RemoveP2P", c.Handle_RemoveP2P).
 			SetOperationId("RemoveP2P").
-			AddParamBody(requests.Variables_RemoveP2P{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_RemoveP2P{}, nil)
+			AddParamBody(requests.RemoveP2P_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.RemoveP2P_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_RemoveP2P(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_RemoveP2P `json:"variables"`
+		Variables requests.RemoveP2P_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

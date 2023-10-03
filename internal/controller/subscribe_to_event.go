@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/SubscribeToEvent", c.Handle_SubscribeToEvent).
 			SetOperationId("SubscribeToEvent").
-			AddParamBody(requests.Variables_SubscribeToEvent{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_SubscribeToEvent{}, nil)
+			AddParamBody(requests.SubscribeToEvent_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.SubscribeToEvent_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_SubscribeToEvent(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_SubscribeToEvent `json:"variables"`
+		Variables requests.SubscribeToEvent_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

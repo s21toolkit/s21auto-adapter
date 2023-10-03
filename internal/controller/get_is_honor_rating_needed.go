@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetIsHonorRatingNeeded", c.Handle_GetIsHonorRatingNeeded).
 			SetOperationId("GetIsHonorRatingNeeded").
-			AddParamBody(requests.Variables_GetIsHonorRatingNeeded{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetIsHonorRatingNeeded{}, nil)
+			AddParamBody(requests.GetIsHonorRatingNeeded_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetIsHonorRatingNeeded_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetIsHonorRatingNeeded(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetIsHonorRatingNeeded `json:"variables"`
+		Variables requests.GetIsHonorRatingNeeded_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

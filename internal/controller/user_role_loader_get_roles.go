@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/UserRoleLoaderGetRoles", c.Handle_UserRoleLoaderGetRoles).
 			SetOperationId("UserRoleLoaderGetRoles").
-			AddParamBody(requests.Variables_UserRoleLoaderGetRoles{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_UserRoleLoaderGetRoles{}, nil)
+			AddParamBody(requests.UserRoleLoaderGetRoles_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.UserRoleLoaderGetRoles_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_UserRoleLoaderGetRoles(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_UserRoleLoaderGetRoles `json:"variables"`
+		Variables requests.UserRoleLoaderGetRoles_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

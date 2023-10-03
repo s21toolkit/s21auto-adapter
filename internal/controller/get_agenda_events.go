@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetAgendaEvents", c.Handle_GetAgendaEvents).
 			SetOperationId("GetAgendaEvents").
-			AddParamBody(requests.Variables_GetAgendaEvents{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetAgendaEvents{}, nil)
+			AddParamBody(requests.GetAgendaEvents_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetAgendaEvents_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetAgendaEvents(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetAgendaEvents `json:"variables"`
+		Variables requests.GetAgendaEvents_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

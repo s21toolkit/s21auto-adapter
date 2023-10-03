@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetGraphBasisGoals", c.Handle_GetGraphBasisGoals).
 			SetOperationId("GetGraphBasisGoals").
-			AddParamBody(requests.Variables_GetGraphBasisGoals{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetGraphBasisGoals{}, nil)
+			AddParamBody(requests.GetGraphBasisGoals_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetGraphBasisGoals_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetGraphBasisGoals(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetGraphBasisGoals `json:"variables"`
+		Variables requests.GetGraphBasisGoals_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

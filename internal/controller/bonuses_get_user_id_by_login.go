@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/BonusesGetUserIdByLogin", c.Handle_BonusesGetUserIdByLogin).
 			SetOperationId("BonusesGetUserIdByLogin").
-			AddParamBody(requests.Variables_BonusesGetUserIdByLogin{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_BonusesGetUserIdByLogin{}, nil)
+			AddParamBody(requests.BonusesGetUserIdByLogin_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.BonusesGetUserIdByLogin_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_BonusesGetUserIdByLogin(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_BonusesGetUserIdByLogin `json:"variables"`
+		Variables requests.BonusesGetUserIdByLogin_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

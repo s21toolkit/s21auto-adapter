@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetCodeReviewPointChargedOff", c.Handle_GetCodeReviewPointChargedOff).
 			SetOperationId("GetCodeReviewPointChargedOff").
-			AddParamBody(requests.Variables_GetCodeReviewPointChargedOff{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetCodeReviewPointChargedOff{}, nil)
+			AddParamBody(requests.GetCodeReviewPointChargedOff_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetCodeReviewPointChargedOff_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetCodeReviewPointChargedOff(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetCodeReviewPointChargedOff `json:"variables"`
+		Variables requests.GetCodeReviewPointChargedOff_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

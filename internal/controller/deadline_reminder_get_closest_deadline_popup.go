@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/DeadlineReminderGetClosestDeadlinePopup", c.Handle_DeadlineReminderGetClosestDeadlinePopup).
 			SetOperationId("DeadlineReminderGetClosestDeadlinePopup").
-			AddParamBody(requests.Variables_DeadlineReminderGetClosestDeadlinePopup{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_DeadlineReminderGetClosestDeadlinePopup{}, nil)
+			AddParamBody(requests.DeadlineReminderGetClosestDeadlinePopup_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.DeadlineReminderGetClosestDeadlinePopup_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_DeadlineReminderGetClosestDeadlinePopup(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_DeadlineReminderGetClosestDeadlinePopup `json:"variables"`
+		Variables requests.DeadlineReminderGetClosestDeadlinePopup_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

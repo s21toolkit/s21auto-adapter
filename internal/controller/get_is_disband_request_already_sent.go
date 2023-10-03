@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetIsDisbandRequestAlreadySent", c.Handle_GetIsDisbandRequestAlreadySent).
 			SetOperationId("GetIsDisbandRequestAlreadySent").
-			AddParamBody(requests.Variables_GetIsDisbandRequestAlreadySent{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetIsDisbandRequestAlreadySent{}, nil)
+			AddParamBody(requests.GetIsDisbandRequestAlreadySent_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetIsDisbandRequestAlreadySent_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetIsDisbandRequestAlreadySent(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetIsDisbandRequestAlreadySent `json:"variables"`
+		Variables requests.GetIsDisbandRequestAlreadySent_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

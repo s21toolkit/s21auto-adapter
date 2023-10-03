@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/EventsWithoutFeedback", c.Handle_EventsWithoutFeedback).
 			SetOperationId("EventsWithoutFeedback").
-			AddParamBody(requests.Variables_EventsWithoutFeedback{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_EventsWithoutFeedback{}, nil)
+			AddParamBody(requests.EventsWithoutFeedback_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.EventsWithoutFeedback_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_EventsWithoutFeedback(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_EventsWithoutFeedback `json:"variables"`
+		Variables requests.EventsWithoutFeedback_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

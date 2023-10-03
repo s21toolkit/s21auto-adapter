@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/CalendarAddCodeReviewToEventSlot", c.Handle_CalendarAddCodeReviewToEventSlot).
 			SetOperationId("CalendarAddCodeReviewToEventSlot").
-			AddParamBody(requests.Variables_CalendarAddCodeReviewToEventSlot{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_CalendarAddCodeReviewToEventSlot{}, nil)
+			AddParamBody(requests.CalendarAddCodeReviewToEventSlot_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.CalendarAddCodeReviewToEventSlot_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_CalendarAddCodeReviewToEventSlot(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_CalendarAddCodeReviewToEventSlot `json:"variables"`
+		Variables requests.CalendarAddCodeReviewToEventSlot_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

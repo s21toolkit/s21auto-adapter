@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/CalendarDeleteEventSlot", c.Handle_CalendarDeleteEventSlot).
 			SetOperationId("CalendarDeleteEventSlot").
-			AddParamBody(requests.Variables_CalendarDeleteEventSlot{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_CalendarDeleteEventSlot{}, nil)
+			AddParamBody(requests.CalendarDeleteEventSlot_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.CalendarDeleteEventSlot_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_CalendarDeleteEventSlot(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_CalendarDeleteEventSlot `json:"variables"`
+		Variables requests.CalendarDeleteEventSlot_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

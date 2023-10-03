@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetGitlabSettingsToken", c.Handle_GetGitlabSettingsToken).
 			SetOperationId("GetGitlabSettingsToken").
-			AddParamBody(requests.Variables_GetGitlabSettingsToken{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetGitlabSettingsToken{}, nil)
+			AddParamBody(requests.GetGitlabSettingsToken_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetGitlabSettingsToken_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetGitlabSettingsToken(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetGitlabSettingsToken `json:"variables"`
+		Variables requests.GetGitlabSettingsToken_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

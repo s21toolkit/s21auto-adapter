@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/PublicProfileGetAchievements", c.Handle_PublicProfileGetAchievements).
 			SetOperationId("PublicProfileGetAchievements").
-			AddParamBody(requests.Variables_PublicProfileGetAchievements{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_PublicProfileGetAchievements{}, nil)
+			AddParamBody(requests.PublicProfileGetAchievements_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.PublicProfileGetAchievements_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_PublicProfileGetAchievements(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_PublicProfileGetAchievements `json:"variables"`
+		Variables requests.PublicProfileGetAchievements_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

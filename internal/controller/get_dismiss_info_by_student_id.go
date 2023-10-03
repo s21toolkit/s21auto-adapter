@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetDismissInfoByStudentId", c.Handle_GetDismissInfoByStudentId).
 			SetOperationId("GetDismissInfoByStudentId").
-			AddParamBody(requests.Variables_GetDismissInfoByStudentId{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetDismissInfoByStudentId{}, nil)
+			AddParamBody(requests.GetDismissInfoByStudentId_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetDismissInfoByStudentId_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetDismissInfoByStudentId(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetDismissInfoByStudentId `json:"variables"`
+		Variables requests.GetDismissInfoByStudentId_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

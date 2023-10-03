@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/UnsubscribeFromEvent", c.Handle_UnsubscribeFromEvent).
 			SetOperationId("UnsubscribeFromEvent").
-			AddParamBody(requests.Variables_UnsubscribeFromEvent{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_UnsubscribeFromEvent{}, nil)
+			AddParamBody(requests.UnsubscribeFromEvent_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.UnsubscribeFromEvent_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_UnsubscribeFromEvent(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_UnsubscribeFromEvent `json:"variables"`
+		Variables requests.UnsubscribeFromEvent_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

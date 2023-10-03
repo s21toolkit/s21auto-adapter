@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetUserNotificationsCount", c.Handle_GetUserNotificationsCount).
 			SetOperationId("GetUserNotificationsCount").
-			AddParamBody(requests.Variables_GetUserNotificationsCount{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetUserNotificationsCount{}, nil)
+			AddParamBody(requests.GetUserNotificationsCount_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetUserNotificationsCount_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetUserNotificationsCount(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetUserNotificationsCount `json:"variables"`
+		Variables requests.GetUserNotificationsCount_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

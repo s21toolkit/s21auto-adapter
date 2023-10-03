@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetProjectConsistencyInfo", c.Handle_GetProjectConsistencyInfo).
 			SetOperationId("GetProjectConsistencyInfo").
-			AddParamBody(requests.Variables_GetProjectConsistencyInfo{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetProjectConsistencyInfo{}, nil)
+			AddParamBody(requests.GetProjectConsistencyInfo_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetProjectConsistencyInfo_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetProjectConsistencyInfo(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetProjectConsistencyInfo `json:"variables"`
+		Variables requests.GetProjectConsistencyInfo_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

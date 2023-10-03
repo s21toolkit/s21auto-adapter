@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/SaveFilledChecklist", c.Handle_SaveFilledChecklist).
 			SetOperationId("SaveFilledChecklist").
-			AddParamBody(requests.Variables_SaveFilledChecklist{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_SaveFilledChecklist{}, nil)
+			AddParamBody(requests.SaveFilledChecklist_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.SaveFilledChecklist_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_SaveFilledChecklist(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_SaveFilledChecklist `json:"variables"`
+		Variables requests.SaveFilledChecklist_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)

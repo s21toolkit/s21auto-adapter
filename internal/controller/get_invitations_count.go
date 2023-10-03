@@ -13,14 +13,14 @@ func init() {
 	registerMethod(func(g echoswagger.ApiGroup, c *AdapterController) {
 		g.POST("/GetInvitationsCount", c.Handle_GetInvitationsCount).
 			SetOperationId("GetInvitationsCount").
-			AddParamBody(requests.Variables_GetInvitationsCount{}, "variables", "Request variables", true).
-			AddResponse(http.StatusOK, "Success", requests.Data_GetInvitationsCount{}, nil)
+			AddParamBody(requests.GetInvitationsCount_Variables{}, "variables", "Request variables", true).
+			AddResponse(http.StatusOK, "Success", requests.GetInvitationsCount_Data{}, nil)
 	})
 }
 
 func (a *AdapterController) Handle_GetInvitationsCount(c echo.Context) (err error) {
 	var data struct {
-		Variables requests.Variables_GetInvitationsCount `json:"variables"`
+		Variables requests.GetInvitationsCount_Variables `json:"variables"`
 	}
 
 	err = json.NewDecoder(c.Request().Body).Decode(&data)
